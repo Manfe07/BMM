@@ -5,7 +5,7 @@ from pprint import pprint
 
 
 def addButtons(buttonList : dict):
-    buttonList['1'].append({
+    buttonList['2'].append({
         'text' : "Statistik",
         'class' : "btn btn-warning",
         'site' : 'statistics.overview'
@@ -20,7 +20,7 @@ statistics = Blueprint('statistics', __name__,
 @statistics.route('/', methods=['GET'])
 @statistics.route('/uebersicht', methods=['GET'])
 def overview():
-    if session.get("logged_in") and session.get("permission") >= 1:
+    if session.get("logged_in") and session.get("permission") >= 2:
         data = {}
         data["artikel"] = datahandler.getOrderOverview()
         data["biermeter"] = cashRegister_datahandler.get_List_By_Date()
