@@ -20,7 +20,7 @@ statistics = Blueprint('statistics', __name__,
 @statistics.route('/', methods=['GET'])
 @statistics.route('/uebersicht', methods=['GET'])
 def overview():
-    if session.get("logged_in") and session.get("permission") >= 2:
+    if session.get("logged_in") and session.get("permission") >= 1:
         data = {}
         data["artikel"] = datahandler.getOrderOverview()
         data["biermeter"] = cashRegister_datahandler.get_List_By_Date()
