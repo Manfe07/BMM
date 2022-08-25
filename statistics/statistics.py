@@ -7,7 +7,7 @@ from pprint import pprint
 def addButtons(buttonList : dict):
     buttonList['1'].append({
         'text' : "Statistik",
-        'class' : "btn",
+        'class' : "btn btn-warning",
         'site' : 'statistics.overview'
     })
     return buttonList
