@@ -1,0 +1,102 @@
+{% extends "index.html" %}
+{% block pagetitle %}Artikel Verwalten{% endblock %}
+{% block content %}
+    <div style="margin: 20px; padding-bottom: 20px">
+        <h2>Statistik Artikel</h2>
+        <table class="table" style="width: auto">
+            <tr class="table-header">
+                <th>Artikel</th>
+                <th>Anzahl</th>
+                <th>Summe</th>
+            </tr>
+            {% for artikel in data["artikel"] %}
+                <tr>
+                    <td class="table-content">{{ artikel.name }}</td>
+                    <td class="table-content">{{ artikel.amount }}</td>
+                    <td class="table-currency">{{ "{:,.2f}€".format( artikel.price) }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div style="margin: 20px; padding-bottom: 20px">
+        <h2>Statistik Biermeter</h2>
+           {% for day in data.biermeter %}
+                <div style="margin-top: 20px;">
+                    <h4>{{ day }}</h4>
+                    <table id="rankingTable">
+                        {% for team in data.biermeter[day] %}
+                            <tr>
+                                <td class="columnTeam"><b>{{ team["team"] }}</b></td>
+                                <td class="columnCnt">{{ team["amount"] }}</td>
+                                <td class="columnBeer">
+                                    {% for n in range(team["amount"]) %}
+                                        🍺
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% endfor %}
+    </div>
+
+{% endblock %}
+{% block style %}
+    <style>
+        .header-row{
+            font-style: inherit;
+            padding: 2px;
+            text-align: center;
+            border-right: solid black;
+        }
+        .basic-row{
+            border-right: solid black;
+            padding: 2px;
+        }
+
+        .table-content{
+            text-align: left;
+            vertical-align: center;
+            white-space: nowrap;
+            padding-left: 5px;
+        }
+        .table-currency{
+            text-align: right;
+            vertical-align: center;
+            white-space: nowrap;
+            padding-left: 5px;
+        }
+
+        .beerTable{
+            vertical-align: bottom;
+            max-height: 25px;
+        }
+        .columnTeam{
+            text-align: right;
+            vertical-align: center;
+            width:0.1%;
+            white-space: nowrap;
+            padding: 5px;
+        }
+        .columnCnt{
+            text-align: right;
+            vertical-align: center;
+            width:0.1%;
+            white-space: nowrap;
+            padding-left: 5px;
+        }
+        .columnBeer{
+            text-align: left;
+            vertical-align: bottom;
+            width: max-content;
+            padding: 5px;
+        }
+        tr:nth-child(odd) {
+            background-color: #b0ceff;
+        }
+        tr:nth-child(even) {
+            background-color: #d9e7ff;
+        }
+    </style>
+{% endblock %}

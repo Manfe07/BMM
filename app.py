@@ -5,6 +5,7 @@ from items import items
 from teams import teams
 from info import info
 from user import user
+from statistics import statistics
 import settings
 import datahandler
 import json
@@ -19,6 +20,7 @@ buttonList = items.addButtons(buttonList)
 buttonList = teams.addButtons(buttonList)
 buttonList = info.addButtons(buttonList)
 buttonList = user.addButtons(buttonList)
+buttonList = statistics.addButtons(buttonList)
 
 app = Flask(__name__)
 app.permanent_session_lifetime = settings.session_lifetime
@@ -29,6 +31,7 @@ app.register_blueprint(items.items, url_prefix="/artikel")
 app.register_blueprint(teams.teams, url_prefix="/teams")
 app.register_blueprint(info.info, url_prefix="/info")
 app.register_blueprint(user.user, url_prefix="/user")
+app.register_blueprint(statistics.statistics, url_prefix="/statistics")
 
 #logging.basicConfig(filename='flask.log', level=logging.DEBUG)
 #logging.basicConfig(filename='flask.log',
