@@ -48,7 +48,6 @@ def get_Items(asGroup = False):
                         dic[groups[group]["id"]]["items"] = []
 
                 for row in result:
-                        print(row)
                         if row[3]:
                                 group_id = row[3]
                         else:
@@ -69,7 +68,6 @@ def get_Items(asGroup = False):
                         })
 
                 con.close()
-                pprint(dic)
                 return dic
 
 
@@ -92,7 +90,6 @@ def get_Items(asGroup = False):
                         print(e)
 
                 con.close()
-                pprint(list)
                 return list
 
 
