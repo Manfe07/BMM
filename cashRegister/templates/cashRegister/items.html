@@ -24,20 +24,6 @@
         {% endfor %}
 
     </div>
-    <div class="itemblock">
-        <table>
-            <tr>
-                <td><button class="btn btn-large btn-warning btn-table" onclick="addItem('Sonstiges', 0.5, 1)"><b>0,50€</b></button></td>
-                <td><button class="btn btn-large btn-warning btn-table" onclick="addItem('Sonstiges', 1, 1)"><b>1,00€</b></button></td>
-                <td><button class="btn btn-large btn-warning btn-table" onclick="addItem('Sonstiges', 2.5, 1)"><b>2,50€</b></button></td>
-            </tr>
-            <tr>
-                <td><button class="btn btn-large btn-warning btn-table" onclick="addItem('Sonstiges', 5, 1)"><b>5,00€</b></button></td>
-                <td><button class="btn btn-large btn-warning btn-table" onclick="addItem('Sonstiges', 10, 1)"><b>10,00€</b></button></td>
-                <td><button class="btn btn-large btn-warning btn-table" onclick="addItem('Sonstiges', 20, 1)"><b>20,00€</b></button></td>
-            </tr>
-        </table>
-    </div>
 
     <div style="margin: 20px">
         <table id="bill" style="font-size: larger; border: black solid; table-layout: auto;"></table>
@@ -47,7 +33,7 @@
         {% if (team.team_id != -1) %}
             <button type="button" class="btn btn-danger" onclick="submitBill(false)"><b>Team-Konto<br>{{ team.team_name }}</b></button>
         {% endif %}
-        <button type="button" class="btn btn-warning" onclick="submitBill(true)"><b>Bar<br>EC</b></button><br><br>
+        <button type="button" class="btn btn-warning" onclick="submitBill(true)"><b>Barzahlung</b></button><br><br>
         <button type="button" class="btn btn-secondary" onclick="location = '{{ url_for("cashRegister.teams") }}'"><b>Bestellung<br>Abbrechen</b></button>
     </div>
 
